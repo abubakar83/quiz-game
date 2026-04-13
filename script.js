@@ -96,6 +96,8 @@ function showQuestion () {
 
     currentQuestionSpan.textContent = currentQuestionIndex + 1
 
+    const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
+    progressBar.style.width = progressPercent + "%"
 }
 
 function restartQuiz () {
