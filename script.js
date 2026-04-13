@@ -5,7 +5,7 @@ const resultScreen = document.getElementById("result-screen")
 const startButton = document.getElementById('start-btn');
 const questionText = document.getElementById('question-text')
 const asnwersContainer = document.getElementById("answers-container")
-const curentQuestionSpan = document.getElementById('current-question')
+const currentQuestionSpan = document.getElementById('current-question')
 const totalQuestionsSpan = document.getElementById("total-questions")
 const scoreSpan = document.getElementById('score')
 const finalScoreSpan = document.getElementById("final-score")
@@ -85,6 +85,17 @@ function startQuiz () {
 
     startScreen.classList.remove('active')
     quizScreen.classList.add("active")
+
+    showQuestion()
+}
+function showQuestion () {
+    // reset state
+    answersDisabled = false;
+    
+    const curentQuestion = quizQuestions[currentQuestionIndex];
+
+    currentQuestionSpan.textContent = currentQuestionIndex + 1
+
 }
 
 function restartQuiz () {
