@@ -12,7 +12,7 @@ const finalScoreSpan = document.getElementById("final-score")
 const maxScoreSpan = document.getElementById('max-score')
 const resultMessage = document.getElementById('result-message')
 const restartButton = document.getElementById("restart-btn")
-const progressBar = document.getElementById('progress')\
+const progressBar = document.getElementById('progress')
 
 // Quiz-Question 
 const quizQuestions =  [
@@ -29,7 +29,7 @@ const quizQuestions =  [
     
     },
     {
-        question: "Whic planet is known as Red Planet ?",
+        question: "Which planet is known as Red Planet ?",
         answer: [
             { text: "Venus", correct: false},
             { text: "Mars", corrent: true},
@@ -70,3 +70,20 @@ const quizQuestions =  [
 let currentQuestionIndex = 0;
 let score = 0;
 let answersDisabled = false;
+
+totalQuestionsSpan.textContent = quizQuestions.length
+maxScoreSpan.textContent = quizQuestions.length
+
+// event listeners
+startButton.addEventListener('click', startQuiz);
+restartButton.addEventListener('click', restartQuiz);
+
+function startQuiz () {
+    // reset vars
+    currentQuestionIndex = 0;
+    scoreSpan.textContent = 0;
+}
+
+function restartQuiz () {
+    console.log('quiz re-started')
+}
