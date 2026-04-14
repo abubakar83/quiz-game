@@ -107,6 +107,10 @@ function showQuestion () {
         const button = document.createElement('button')
         button.textContent = answer.text
         button.classList.add("answer-btn")
+
+        // here dataset is a property of the button element that allows you to store custom data
+        button.dataset.correct = answer.correct ;
+        
     })
 }
 
