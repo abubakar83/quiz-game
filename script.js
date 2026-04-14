@@ -92,12 +92,14 @@ function showQuestion () {
     // reset state
     answersDisabled = false;
     
-    const curentQuestion = quizQuestions[currentQuestionIndex];
+    const currentQuestion = quizQuestions[currentQuestionIndex];
 
     currentQuestionSpan.textContent = currentQuestionIndex + 1
 
     const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
     progressBar.style.width = progressPercent + "%"
+
+    questionText.textContent = currentQuestion.question
 }
 
 function restartQuiz () {
