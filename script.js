@@ -100,6 +100,14 @@ function showQuestion () {
     progressBar.style.width = progressPercent + "%"
 
     questionText.textContent = currentQuestion.question
+
+    asnwersContainer.innerHTML = "";
+
+    currentQuestion.answer.forEach((answer) => {
+        const button = document.createElement('button')
+        button.textContent = answer.text
+        button.classList.add("answer-btn")
+    })
 }
 
 function restartQuiz () {
