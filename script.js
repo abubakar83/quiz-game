@@ -110,7 +110,11 @@ function showQuestion () {
 
         // here dataset is a property of the button element that allows you to store custom data
         button.dataset.correct = answer.correct ;
-        
+
+        button.addEventListener("click", selectAnswer)
+
+        asnwersContainer.appendChild(button)
+
     })
 }
 
