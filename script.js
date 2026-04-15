@@ -128,6 +128,13 @@ function selectAnswer (event) {
     const isCorrect = selectedButton.dataset.correct === "true";
 
     // 
+    Array.from(asnwersContainer.children).forEach((button) => {
+        if(button.dataset.correct === 'true') {
+            button.classList.add("correct");
+        }else{
+            button.classList.add("incorrect");
+        }
+    }) 
     
 }
 function restartQuiz () {
