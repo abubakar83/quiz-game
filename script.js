@@ -134,7 +134,12 @@ function selectAnswer (event) {
         }else{
             button.classList.add("incorrect");
         }
-    }) 
+    });
+
+    if(isCorrect) {
+        score++;
+        scoreSpan.textContent = score 
+    }
     
 }
 function restartQuiz () {
