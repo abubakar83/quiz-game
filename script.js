@@ -7,7 +7,7 @@ const questionText = document.getElementById('question-text')
 const asnwersContainer = document.getElementById("answers-container")
 const currentQuestionSpan = document.getElementById('current-question')
 const totalQuestionsSpan = document.getElementById("total-questions")
-const scoreSpan = document.getElementById('final-score')
+const scoreSpan = document.getElementById('score')
 const finalScoreSpan = document.getElementById("final-score")
 const maxScoreSpan = document.getElementById('max-score')
 const resultMessage = document.getElementById('result-message')
@@ -19,12 +19,12 @@ const quizQuestions =  [
     {
         question: "What is the capital of France ?",
         answer: [
-            {
-                text: "London", correct: false,
-                text: "Berlin", correct: false,
-                text: "Paris", correct: true,
-                text:  "Madrid", correct: false,
-            }
+            
+                {text: "London", correct: false},
+                {text: "Berlin", correct: false},
+                {text: "Paris", correct: true},
+                {text:  "Madrid", correct: false},
+            
         ],
     
     },
@@ -32,7 +32,7 @@ const quizQuestions =  [
         question: "Which planet is known as Red Planet ?",
         answer: [
             { text: "Venus", correct: false},
-            { text: "Mars", corrent: true},
+            { text: "Mars", correct: true},
             { text: "Jupter", correct: false},
             { text: "Satrun", correct: false},
         ],
@@ -71,8 +71,8 @@ let currentQuestionIndex = 0;
 let score = 0;
 let answersDisabled = false;
 
-totalQuestionsSpan.textContent = quizQuestions.length
-maxScoreSpan.textContent = quizQuestions.length
+totalQuestionsSpan.textContent = quizQuestions.length;
+maxScoreSpan.textContent = quizQuestions.length;
 
 // event listeners
 startButton.addEventListener('click', startQuiz);
@@ -81,7 +81,8 @@ restartButton.addEventListener('click', restartQuiz);
 function startQuiz () {
     // reset vars
     currentQuestionIndex = 0;
-    // scoreSpan.textContent = 0;
+    score = 0;
+    scoreSpan.textContent = 0;   
 
     startScreen.classList.remove('active')
     quizScreen.classList.add("active")
@@ -131,7 +132,7 @@ function selectAnswer (event) {
     Array.from(asnwersContainer.children).forEach((button) => {
         if(button.dataset.correct === 'true') {
             button.classList.add("correct");
-        }else{
+        } else if (button === selectedButton){
             button.classList.add("incorrect");
         }
     });
@@ -176,5 +177,7 @@ function selectAnswer (event) {
     
 }
 function restartQuiz () {
-    console.log('quiz re-started')
+   resultScreen.classList.remove('active');
+
+   startQuiz()
 }
