@@ -7,7 +7,7 @@ const questionText = document.getElementById('question-text')
 const asnwersContainer = document.getElementById("answers-container")
 const currentQuestionSpan = document.getElementById('current-question')
 const totalQuestionsSpan = document.getElementById("total-questions")
-const scoreSpan = document.getElementById('score')
+const scoreSpan = document.getElementById('final-score')
 const finalScoreSpan = document.getElementById("final-score")
 const maxScoreSpan = document.getElementById('max-score')
 const resultMessage = document.getElementById('result-message')
@@ -151,6 +151,16 @@ function selectAnswer (event) {
             showResults()
         }
     }, 1000)
+
+    function showResults() {
+        quizScreen.classList.remove('active');
+        resultScreen.classList.add('active');
+
+        finalScoreSpan.textContent = score;
+
+        const percentage = (score/quizQuestions.length) * 100
+
+    }
     
 }
 function restartQuiz () {
