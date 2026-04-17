@@ -160,6 +160,18 @@ function selectAnswer (event) {
 
         const percentage = (score/quizQuestions.length) * 100
 
+        if(percentage === 100 ) {
+            resultMessage.textContent = "Perfect! You're genius! ";
+        }else if (percentage >= 80) {
+            resultMessage.textContent = "Great job! You know your stuff! ";
+        }else if (percentage >= 60) {
+             resultMessage.textContent = "Good effort! Keep learning! ";
+        }else if (percentage >= 40) {
+             resultMessage.textContent = "Not bad! Try again to improve! ";
+        }else {
+             resultMessage.textContent = "Keep styding! you will get better! ";
+        }
+
     }
     
 }
